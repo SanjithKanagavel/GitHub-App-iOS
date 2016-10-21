@@ -33,6 +33,7 @@
 		C51C33D61DBA2640004C45B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C51C33DC1DBA2793004C45B2 /* repo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo.png; sourceTree = "<group>"; };
 		C51C33DD1DBA2793004C45B2 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		C51C33E01DBA2DA2004C45B2 /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +79,7 @@
 				C51C33D31DBA2640004C45B2 /* LaunchScreen.storyboard */,
 				C51C33D61DBA2640004C45B2 /* Info.plist */,
 				C51C33C21DBA263F004C45B2 /* Supporting Files */,
+				C51C33E01DBA2DA2004C45B2 /* Keys.h */,
 			);
 			path = "GitHub App-iOS";
 			sourceTree = "<group>";
@@ -283,6 +285,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjithkanagavel.GitHub-App-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -294,6 +297,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjithkanagavel.GitHub-App-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
