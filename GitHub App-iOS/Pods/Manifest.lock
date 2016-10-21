@@ -1,0 +1,15 @@
+PODS:
+  - SBJson (4.0.2)
+  - UAGithubEngine (2.3)
+
+DEPENDENCIES:
+  - SBJson (~> 4.0.0)
+  - UAGithubEngine
+
+SPEC CHECKSUMS:
+  SBJson: c18691cc18375b14664ff0fec841f8c4faef1934
+  UAGithubEngine: 774172b0cc0c9fe35c7bcfb7eb3d64787b846d9d
+
+PODFILE CHECKSUM: 0a6107f8c801179602538b6d85923abb90e997e2
+
+COCOAPODS: 1.1.0.rc.2
