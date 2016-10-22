@@ -234,7 +234,7 @@ UIButton *button;
     NSDictionary *dictVal = [self.repoDetails objectAtIndex:indexPath.row];
     cell.repoDesc.text = [[[dictVal valueForKey:@"description"] description] isEqual:@"<null>" ] ? @"No Description Available": [[dictVal valueForKey:@"description"] description] ;
     cell.repoName.text = [[dictVal valueForKey:@"full_name"] description];
-    cell.watchLabel.text = [[dictVal valueForKey:@"watchers_count"] description];
+    cell.watchLabel.text = [[dictVal valueForKey:@"watchers"] description];
     cell.starLabel.text = [[dictVal valueForKey:@"stargazers_count"] description];
     cell.forkLabel.text = [[dictVal valueForKey:@"forks_count"] description];
     cell.languageLabel.text = [[[dictVal valueForKey:@"language"] description]  isEqual: @"<null>"] ? @"No Language Available":[[dictVal valueForKey:@"language"] description];
