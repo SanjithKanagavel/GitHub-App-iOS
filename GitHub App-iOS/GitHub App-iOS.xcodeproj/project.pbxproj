@@ -23,6 +23,9 @@
 		C51C340E1DBB2458004C45B2 /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C340B1DBB2458004C45B2 /* watch.png */; };
 		C51C34101DBB269A004C45B2 /* language.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C340F1DBB269A004C45B2 /* language.png */; };
 		C51C34131DBB279A004C45B2 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34121DBB279A004C45B2 /* CustomCell.m */; };
+		C51C34151DBB51C5004C45B2 /* lang-color.json in Resources */ = {isa = PBXBuildFile; fileRef = C51C34141DBB51C5004C45B2 /* lang-color.json */; };
+		C51C34171DBB6162004C45B2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51C34161DBB6160004C45B2 /* Security.framework */; };
+		C51C341A1DBB61CB004C45B2 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34191DBB61CB004C45B2 /* KeychainItemWrapper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,13 +47,17 @@
 		C51C33DC1DBA2793004C45B2 /* repo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo.png; sourceTree = "<group>"; };
 		C51C33DD1DBA2793004C45B2 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		C51C33E01DBA2DA2004C45B2 /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
-		C51C34071DBB2231004C45B2 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		C51C34091DBB2458004C45B2 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = "GitHub App-iOS/star.png"; sourceTree = "<group>"; };
-		C51C340A1DBB2458004C45B2 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fork.png; path = "GitHub App-iOS/fork.png"; sourceTree = "<group>"; };
-		C51C340B1DBB2458004C45B2 /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watch.png; path = "GitHub App-iOS/watch.png"; sourceTree = "<group>"; };
+		C51C34071DBB2231004C45B2 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomCell.xib; path = ../CustomCell.xib; sourceTree = "<group>"; };
+		C51C34091DBB2458004C45B2 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		C51C340A1DBB2458004C45B2 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fork.png; sourceTree = "<group>"; };
+		C51C340B1DBB2458004C45B2 /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch.png; sourceTree = "<group>"; };
 		C51C340F1DBB269A004C45B2 /* language.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language.png; sourceTree = "<group>"; };
-		C51C34111DBB279A004C45B2 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
-		C51C34121DBB279A004C45B2 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		C51C34111DBB279A004C45B2 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomCell.h; path = ../CustomCell.h; sourceTree = "<group>"; };
+		C51C34121DBB279A004C45B2 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomCell.m; path = ../CustomCell.m; sourceTree = "<group>"; };
+		C51C34141DBB51C5004C45B2 /* lang-color.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lang-color.json"; sourceTree = "<group>"; };
+		C51C34161DBB6160004C45B2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C51C34181DBB61CB004C45B2 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		C51C34191DBB61CB004C45B2 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51C34171DBB6162004C45B2 /* Security.framework in Frameworks */,
 				4A0F9ABF939672C614422A6A /* libPods-GitHub App-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +76,7 @@
 		9BBBF85DF939404B18F95F93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C51C34161DBB6160004C45B2 /* Security.framework */,
 				ADB349F64B9A241B8CFF6A34 /* libPods-GitHub App-iOS.a */,
 			);
 			name = Frameworks;
@@ -76,12 +85,6 @@
 		C51C33B61DBA263E004C45B2 = {
 			isa = PBXGroup;
 			children = (
-				C51C34091DBB2458004C45B2 /* star.png */,
-				C51C340A1DBB2458004C45B2 /* fork.png */,
-				C51C340B1DBB2458004C45B2 /* watch.png */,
-				C51C34071DBB2231004C45B2 /* CustomCell.xib */,
-				C51C34111DBB279A004C45B2 /* CustomCell.h */,
-				C51C34121DBB279A004C45B2 /* CustomCell.m */,
 				C51C33C11DBA263F004C45B2 /* GitHub App-iOS */,
 				C51C33C01DBA263F004C45B2 /* Products */,
 				FF4E4F66A13CB54306F99CB5 /* Pods */,
@@ -100,6 +103,15 @@
 		C51C33C11DBA263F004C45B2 /* GitHub App-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C51C34181DBB61CB004C45B2 /* KeychainItemWrapper.h */,
+				C51C34191DBB61CB004C45B2 /* KeychainItemWrapper.m */,
+				C51C34091DBB2458004C45B2 /* star.png */,
+				C51C340A1DBB2458004C45B2 /* fork.png */,
+				C51C340B1DBB2458004C45B2 /* watch.png */,
+				C51C34071DBB2231004C45B2 /* CustomCell.xib */,
+				C51C34111DBB279A004C45B2 /* CustomCell.h */,
+				C51C34121DBB279A004C45B2 /* CustomCell.m */,
+				C51C34141DBB51C5004C45B2 /* lang-color.json */,
 				C51C340F1DBB269A004C45B2 /* language.png */,
 				C51C33DC1DBA2793004C45B2 /* repo.png */,
 				C51C33DD1DBA2793004C45B2 /* user.png */,
@@ -201,6 +213,7 @@
 				C51C33D51DBA2640004C45B2 /* LaunchScreen.storyboard in Resources */,
 				C51C340E1DBB2458004C45B2 /* watch.png in Resources */,
 				C51C33DF1DBA2793004C45B2 /* user.png in Resources */,
+				C51C34151DBB51C5004C45B2 /* lang-color.json in Resources */,
 				C51C33DE1DBA2793004C45B2 /* repo.png in Resources */,
 				C51C340C1DBB2458004C45B2 /* star.png in Resources */,
 				C51C340D1DBB2458004C45B2 /* fork.png in Resources */,
@@ -266,6 +279,7 @@
 			files = (
 				C51C33CD1DBA263F004C45B2 /* SecondViewController.m in Sources */,
 				C51C33C71DBA263F004C45B2 /* AppDelegate.m in Sources */,
+				C51C341A1DBB61CB004C45B2 /* KeychainItemWrapper.m in Sources */,
 				C51C33CA1DBA263F004C45B2 /* FirstViewController.m in Sources */,
 				C51C33C41DBA263F004C45B2 /* main.m in Sources */,
 				C51C34131DBB279A004C45B2 /* CustomCell.m in Sources */,
