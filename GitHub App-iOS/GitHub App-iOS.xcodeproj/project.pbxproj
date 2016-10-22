@@ -17,6 +17,12 @@
 		C51C33D51DBA2640004C45B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C51C33D31DBA2640004C45B2 /* LaunchScreen.storyboard */; };
 		C51C33DE1DBA2793004C45B2 /* repo.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C33DC1DBA2793004C45B2 /* repo.png */; };
 		C51C33DF1DBA2793004C45B2 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C33DD1DBA2793004C45B2 /* user.png */; };
+		C51C34081DBB2231004C45B2 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51C34071DBB2231004C45B2 /* CustomCell.xib */; };
+		C51C340C1DBB2458004C45B2 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C34091DBB2458004C45B2 /* star.png */; };
+		C51C340D1DBB2458004C45B2 /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C340A1DBB2458004C45B2 /* fork.png */; };
+		C51C340E1DBB2458004C45B2 /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C340B1DBB2458004C45B2 /* watch.png */; };
+		C51C34101DBB269A004C45B2 /* language.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C340F1DBB269A004C45B2 /* language.png */; };
+		C51C34131DBB279A004C45B2 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34121DBB279A004C45B2 /* CustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +44,13 @@
 		C51C33DC1DBA2793004C45B2 /* repo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = repo.png; sourceTree = "<group>"; };
 		C51C33DD1DBA2793004C45B2 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		C51C33E01DBA2DA2004C45B2 /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		C51C34071DBB2231004C45B2 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		C51C34091DBB2458004C45B2 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = "GitHub App-iOS/star.png"; sourceTree = "<group>"; };
+		C51C340A1DBB2458004C45B2 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fork.png; path = "GitHub App-iOS/fork.png"; sourceTree = "<group>"; };
+		C51C340B1DBB2458004C45B2 /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = watch.png; path = "GitHub App-iOS/watch.png"; sourceTree = "<group>"; };
+		C51C340F1DBB269A004C45B2 /* language.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language.png; sourceTree = "<group>"; };
+		C51C34111DBB279A004C45B2 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		C51C34121DBB279A004C45B2 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +76,12 @@
 		C51C33B61DBA263E004C45B2 = {
 			isa = PBXGroup;
 			children = (
+				C51C34091DBB2458004C45B2 /* star.png */,
+				C51C340A1DBB2458004C45B2 /* fork.png */,
+				C51C340B1DBB2458004C45B2 /* watch.png */,
+				C51C34071DBB2231004C45B2 /* CustomCell.xib */,
+				C51C34111DBB279A004C45B2 /* CustomCell.h */,
+				C51C34121DBB279A004C45B2 /* CustomCell.m */,
 				C51C33C11DBA263F004C45B2 /* GitHub App-iOS */,
 				C51C33C01DBA263F004C45B2 /* Products */,
 				FF4E4F66A13CB54306F99CB5 /* Pods */,
@@ -81,16 +100,17 @@
 		C51C33C11DBA263F004C45B2 /* GitHub App-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C51C340F1DBB269A004C45B2 /* language.png */,
 				C51C33DC1DBA2793004C45B2 /* repo.png */,
 				C51C33DD1DBA2793004C45B2 /* user.png */,
 				C51C33C51DBA263F004C45B2 /* AppDelegate.h */,
 				C51C33C61DBA263F004C45B2 /* AppDelegate.m */,
 				C51C33C81DBA263F004C45B2 /* FirstViewController.h */,
 				C51C33C91DBA263F004C45B2 /* FirstViewController.m */,
-				C51C33CB1DBA263F004C45B2 /* SecondViewController.h */,
 				C51C33CC1DBA263F004C45B2 /* SecondViewController.m */,
-				C51C33CE1DBA263F004C45B2 /* Main.storyboard */,
+				C51C33CB1DBA263F004C45B2 /* SecondViewController.h */,
 				C51C33D11DBA2640004C45B2 /* Assets.xcassets */,
+				C51C33CE1DBA263F004C45B2 /* Main.storyboard */,
 				C51C33D31DBA2640004C45B2 /* LaunchScreen.storyboard */,
 				C51C33D61DBA2640004C45B2 /* Info.plist */,
 				C51C33C21DBA263F004C45B2 /* Supporting Files */,
@@ -176,9 +196,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51C34081DBB2231004C45B2 /* CustomCell.xib in Resources */,
+				C51C34101DBB269A004C45B2 /* language.png in Resources */,
 				C51C33D51DBA2640004C45B2 /* LaunchScreen.storyboard in Resources */,
+				C51C340E1DBB2458004C45B2 /* watch.png in Resources */,
 				C51C33DF1DBA2793004C45B2 /* user.png in Resources */,
 				C51C33DE1DBA2793004C45B2 /* repo.png in Resources */,
+				C51C340C1DBB2458004C45B2 /* star.png in Resources */,
+				C51C340D1DBB2458004C45B2 /* fork.png in Resources */,
 				C51C33D21DBA2640004C45B2 /* Assets.xcassets in Resources */,
 				C51C33D01DBA263F004C45B2 /* Main.storyboard in Resources */,
 			);
@@ -243,6 +268,7 @@
 				C51C33C71DBA263F004C45B2 /* AppDelegate.m in Sources */,
 				C51C33CA1DBA263F004C45B2 /* FirstViewController.m in Sources */,
 				C51C33C41DBA263F004C45B2 /* main.m in Sources */,
+				C51C34131DBB279A004C45B2 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

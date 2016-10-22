@@ -10,11 +10,12 @@
 #import "Keys.h"
 #import "UAGithubEngine.h"
 #import "UAGithubJSONParser.h"
+#import "CustomCell.h"
 
 //typedef void(^FINISHED) (BOOL);
 
 @interface FirstViewController ()
-
+@property NSMutableArray *repoDetails;
 @end
 
 @implementation FirstViewController
@@ -22,32 +23,50 @@ UAGithubEngine *engine;
 BOOL testing;
 NSUserDefaults *userDefaults;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     testing =true;
-    // Do any additional setup after loading the view, typically from a nib.
+    self.repoDetails =[[NSMutableArray alloc] init];
+    [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"]; //registering custom cell
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    /*if(true)
+    {
+        NSMutableDictionary *tempData = [[NSMutableDictionary alloc]init];
+        [tempData setValue:@"Description" forKey:@"description"];
+        [tempData setValue:@"Git Repo Name" forKey:@"full_name"];
+        [tempData setValue:@"10" forKey:@"watchers_count"];
+        [tempData setValue:@"10" forKey:@"stargazers_count"];
+        [tempData setValue:@"10" forKey:@"forks"];
+        [tempData setValue:@"Objective-C" forKey:@"language"];
+        [self.repoDetails addObject:tempData];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        return;
+    }*/
     
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     if(!testing) {
-    userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"GitHubCredentials"];
-    NSString *userName = [userDefaults stringForKey:@"UserName"];
-    NSString *userPassword = [userDefaults stringForKey:@"UserPassword"];
-    NSLog(@"%@ %@",userName,userPassword);
-    if([userDefaults stringForKey:@"UserName"] == nil) {
-        printf("Account not found");
-        [self signIn];
-    }
-    else {
-        printf("Account found");
-        [self pullRepos];
-    }
+        userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"GitHubCredentials"];
+        NSString *userName = [userDefaults stringForKey:@"UserName"];
+        NSString *userPassword = [userDefaults stringForKey:@"UserPassword"];
+        NSLog(@"%@ %@",userName,userPassword);
+        if([userDefaults stringForKey:@"UserName"] == nil) {
+            printf("Account not found");
+            [self signIn];
+        }
+        else {
+            printf("Account found");
+            [self pullRepos];
+        }
     }
     else{
         [self pullRepos];
     }
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 -(void) signIn {
@@ -89,8 +108,8 @@ NSUserDefaults *userDefaults;
 }
 
 -(void) pullRepos {
-     //= [[NSUserDefaults standardUserDefaults] setObject:@"UserName" forKey:@""];
-     //= [[NSUserDefaults standardUserDefaults] setObject:@"UserPassword" forKey:@""];
+    [self.repoDetails removeAllObjects];
+    
     NSString *userName;
     NSString *userPassword;
     
@@ -99,8 +118,9 @@ NSUserDefaults *userDefaults;
         userPassword = [userDefaults stringForKey:@"UserPassword"];
     }
     else {
-        userName = @"aPage";
-        userPassword = @"bPage";
+        //replace your username and password here
+        userName = @"";
+        userPassword = @"";
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
     
@@ -110,17 +130,30 @@ NSUserDefaults *userDefaults;
     }
     
     [engine repositoriesWithSuccess:^(id response) {
-        NSLog(@"Got an array of repos: %@", response);
+        
+    NSError *e = nil;
+    NSError *error = nil;
+    NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+    NSLog(@"jsonData as string:\n%@", jsonString);
+    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData: jsonData2 options: NSJSONReadingMutableContainers error: &e];
+        
+    if (!jsonArray) {
+            NSLog(@"Error parsing JSON: %@", e);
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+        for(NSDictionary *item in jsonArray) {
+            [self.repoDetails addObject:item];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        });
+    }
+
     } failure:^(NSError *error) {
         NSLog(@"Oops: %@", error);
     }];
-    
-    //NSLog(@"%@ %@",userName,userPassword);
-    /*[engine user:@"this_guy" isCollaboratorForRepository:@"UAGithubEngine" success:^(BOOL collaborates) {
-        NSLog(@"%d", collaborates);
-    } failure:^(NSError *error){
-        NSLog(@"D'oh: %@", error);
-    }];*/
+        
 });
 }
 
@@ -144,13 +177,27 @@ NSUserDefaults *userDefaults;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return self.repoDetails.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [@"Repository" stringByAppendingString:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];
+    
+    CustomCell *cell;
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCell" owner:self options:nil];
+    cell = [nib objectAtIndex:0];
+    NSDictionary *dictVal = [self.repoDetails objectAtIndex:indexPath.row];
+    cell.repoDesc.text = [[[dictVal valueForKey:@"description"] description] isEqual:@"<null>" ] ? @"No Description Available": [[dictVal valueForKey:@"description"] description] ;
+    cell.repoName.text = [[dictVal valueForKey:@"full_name"] description];
+    cell.watchLabel.text = [[dictVal valueForKey:@"watchers_count"] description];
+    cell.starLabel.text = [[dictVal valueForKey:@"stargazers_count"] description];
+    cell.forkLabel.text = [[dictVal valueForKey:@"forks_count"] description];
+    cell.languageLabel.text = [[[dictVal valueForKey:@"language"] description]  isEqual: @"<null>"] ? @"No Language Available":[[dictVal valueForKey:@"language"] description];
     return cell;
+    
+    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    NSDictionary *dictVal = [self.repoDetails objectAtIndex:indexPath.row];
+    cell.textLabel.text = dictVal[@"full_name"];
+    return cell;*/
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -159,7 +206,17 @@ NSUserDefaults *userDefaults;
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        //when delete is tapped
+        [self.repoDetails removeObjectAtIndex:indexPath.row];
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 130;
 }
 
 

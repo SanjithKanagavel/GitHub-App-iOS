@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>SBJson.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
 		<key>UAGithubEngine.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,7 +22,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0F540B74713CEC3403A8F6BF91B31EB7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2413ACFB8DF9DC4624ECE2F2D5457891</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>532EE39397C58A4D819BF7AB81657E9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63206FF595DD6CF7B4C8620D7F23C8CC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
