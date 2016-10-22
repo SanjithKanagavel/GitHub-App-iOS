@@ -1,19 +1,19 @@
 //
-//  SecondViewController.m
+//  FourthViewController.m
 //  GitHub App-iOS
 //
 //  Created by Sanjith Kanagavel on 21/10/16.
 //  Copyright © 2016 Sanjith Kanagavel. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FourthViewController.h"
 #import "Keys.h"
 #import "UAGithubEngine.h"
 #import "UAGithubJSONParser.h"
-#import "CustomCell1.h"
+#import "UserCell.h"
 #import "KeychainItemWrapper.h"
 
-@interface SecondViewController ()
+@interface FourthViewController ()
 @property NSMutableArray *repoDetails;
 @property NSString *userName;
 @property NSString *userPassword;
@@ -24,7 +24,7 @@
 @property UIButton *button;
 @end
 
-@implementation SecondViewController
+@implementation FourthViewController
 NSUserDefaults *userDefaults;
 
 
@@ -53,7 +53,7 @@ NSUserDefaults *userDefaults;
     self.button.titleLabel.font= [UIFont fontWithName:@"Helvetica-Bold" size:20.0];
     [self.button setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self.button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-    [self.tableView registerClass:[CustomCell1 class] forCellReuseIdentifier:@"CustomCell"];
+    [self.tableView registerClass:[UserCell class] forCellReuseIdentifier:@"CustomCell"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -99,7 +99,7 @@ NSUserDefaults *userDefaults;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             self.engine = [[UAGithubEngine alloc] initWithUsername:userName.text password:userPassword.text withReachability:YES];
             if(self.engine != nil) {
-                [self.engine StarredRepositoriesWithSuccess:^(id response) {
+                [self.engine FollowingWithSuccess:^(id response) {
                     NSError *e = nil;
                     NSError *error = nil;
                     NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingPrettyPrinted error:&error];
@@ -163,7 +163,7 @@ NSUserDefaults *userDefaults;
             self.engine = [[UAGithubEngine alloc] initWithUsername:self.userName password:self.userPassword withReachability:YES];
         }
         
-        [self.engine StarredRepositoriesWithSuccess:^(id response) {
+        [self.engine FollowingWithSuccess:^(id response) {
             
             NSError *e = nil;
             NSError *error = nil;
@@ -180,8 +180,8 @@ NSUserDefaults *userDefaults;
                         [self.repoDetails addObject:item];
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                        [self.tableView reloadData];
                     }
+                    
                 });
             }
             
@@ -226,22 +226,15 @@ NSUserDefaults *userDefaults;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CustomCell1 *cell;
-    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"CustomCell1" owner:self options:nil];
+    UserCell *cell;
+    NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"UserCell" owner:self options:nil];
     cell = [nib objectAtIndex:0];
     NSDictionary *dictVal = [self.repoDetails objectAtIndex:indexPath.row];
-    cell.repoDesc.text = [[[dictVal valueForKey:@"description"] description] isEqual:@"<null>" ] ? @"No Description Available": [[dictVal valueForKey:@"description"] description] ;
-    cell.repoName.text = [[dictVal valueForKey:@"full_name"] description];
-    cell.languageLabel.text = [[[dictVal valueForKey:@"language"] description]  isEqual: @"<null>"] ? @"No Language Available":[[dictVal valueForKey:@"language"] description];
-    cell.authorLabel.text =[[[dictVal valueForKey:@"owner"] valueForKey:@"login" ] description];
-    if([[[dictVal valueForKey:@"language"] description]  isEqual: @"<null>"]) {
-        [cell.languageLabel setTextColor:[UIColor orangeColor]];
-    }
-    else {
-        [cell.languageLabel setTextColor:[self colorFromHexString:[[self.colorDict valueForKey:cell.languageLabel.text] valueForKey:@"color"]]];
-    }
-    
-    
+    cell.userLabel.text =  [[dictVal valueForKey:@"login"] description];
+    NSURL *url = [NSURL URLWithString:[[dictVal valueForKey:@"avatar_url"] description]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    [cell.userImage setImage:image];
     return cell;
 }
 

@@ -1,5 +1,5 @@
 //
-//  SecondViewController.h
+//  ThirdViewController.h
 //  GitHub App-iOS
 //
 //  Created by Sanjith Kanagavel on 21/10/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
+@interface ThirdViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

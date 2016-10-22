@@ -184,6 +184,7 @@ UIButton *button;
             [self.repoDetails addObject:item];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView reloadData];
         }
         });
     }

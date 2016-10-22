@@ -29,6 +29,13 @@
 		C51C341C1DBBAAB0004C45B2 /* star-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C341B1DBBAAB0004C45B2 /* star-small.png */; };
 		C51C341F1DBBAC23004C45B2 /* follower.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C341D1DBBAC23004C45B2 /* follower.png */; };
 		C51C34201DBBAC23004C45B2 /* following.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C341E1DBBAC23004C45B2 /* following.png */; };
+		C51C34241DBBCD3F004C45B2 /* CustomCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34221DBBCD3E004C45B2 /* CustomCell1.m */; };
+		C51C34251DBBCD3F004C45B2 /* CustomCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51C34231DBBCD3E004C45B2 /* CustomCell1.xib */; };
+		C51C34271DBBDCBB004C45B2 /* author.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C34261DBBDCBB004C45B2 /* author.png */; };
+		C51C342A1DBBDF53004C45B2 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34291DBBDF53004C45B2 /* ThirdViewController.m */; };
+		C51C342E1DBBE16B004C45B2 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C342C1DBBE16B004C45B2 /* UserCell.m */; };
+		C51C342F1DBBE16B004C45B2 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51C342D1DBBE16B004C45B2 /* UserCell.xib */; };
+		C51C34321DBBE45D004C45B2 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34311DBBE45D004C45B2 /* FourthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +71,17 @@
 		C51C341B1DBBAAB0004C45B2 /* star-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-small.png"; sourceTree = "<group>"; };
 		C51C341D1DBBAC23004C45B2 /* follower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = follower.png; sourceTree = "<group>"; };
 		C51C341E1DBBAC23004C45B2 /* following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = following.png; sourceTree = "<group>"; };
+		C51C34211DBBCD3E004C45B2 /* CustomCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell1.h; sourceTree = "<group>"; };
+		C51C34221DBBCD3E004C45B2 /* CustomCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell1.m; sourceTree = "<group>"; };
+		C51C34231DBBCD3E004C45B2 /* CustomCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell1.xib; sourceTree = "<group>"; };
+		C51C34261DBBDCBB004C45B2 /* author.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = author.png; sourceTree = "<group>"; };
+		C51C34281DBBDF53004C45B2 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		C51C34291DBBDF53004C45B2 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		C51C342B1DBBE16B004C45B2 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
+		C51C342C1DBBE16B004C45B2 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
+		C51C342D1DBBE16B004C45B2 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		C51C34301DBBE45D004C45B2 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
+		C51C34311DBBE45D004C45B2 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +127,7 @@
 		C51C33C11DBA263F004C45B2 /* GitHub App-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C51C34261DBBDCBB004C45B2 /* author.png */,
 				C51C341D1DBBAC23004C45B2 /* follower.png */,
 				C51C341E1DBBAC23004C45B2 /* following.png */,
 				C51C341B1DBBAAB0004C45B2 /* star-small.png */,
@@ -117,9 +136,12 @@
 				C51C34091DBB2458004C45B2 /* star.png */,
 				C51C340A1DBB2458004C45B2 /* fork.png */,
 				C51C340B1DBB2458004C45B2 /* watch.png */,
-				C51C34071DBB2231004C45B2 /* CustomCell.xib */,
+				C51C34211DBBCD3E004C45B2 /* CustomCell1.h */,
+				C51C34221DBBCD3E004C45B2 /* CustomCell1.m */,
+				C51C34231DBBCD3E004C45B2 /* CustomCell1.xib */,
 				C51C34111DBB279A004C45B2 /* CustomCell.h */,
 				C51C34121DBB279A004C45B2 /* CustomCell.m */,
+				C51C34071DBB2231004C45B2 /* CustomCell.xib */,
 				C51C34141DBB51C5004C45B2 /* lang-color.json */,
 				C51C340F1DBB269A004C45B2 /* language.png */,
 				C51C33DC1DBA2793004C45B2 /* repo.png */,
@@ -130,6 +152,13 @@
 				C51C33C91DBA263F004C45B2 /* FirstViewController.m */,
 				C51C33CC1DBA263F004C45B2 /* SecondViewController.m */,
 				C51C33CB1DBA263F004C45B2 /* SecondViewController.h */,
+				C51C34281DBBDF53004C45B2 /* ThirdViewController.h */,
+				C51C34291DBBDF53004C45B2 /* ThirdViewController.m */,
+				C51C34301DBBE45D004C45B2 /* FourthViewController.h */,
+				C51C34311DBBE45D004C45B2 /* FourthViewController.m */,
+				C51C342B1DBBE16B004C45B2 /* UserCell.h */,
+				C51C342C1DBBE16B004C45B2 /* UserCell.m */,
+				C51C342D1DBBE16B004C45B2 /* UserCell.xib */,
 				C51C33D11DBA2640004C45B2 /* Assets.xcassets */,
 				C51C33CE1DBA263F004C45B2 /* Main.storyboard */,
 				C51C33D31DBA2640004C45B2 /* LaunchScreen.storyboard */,
@@ -217,7 +246,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C51C34271DBBDCBB004C45B2 /* author.png in Resources */,
+				C51C34251DBBCD3F004C45B2 /* CustomCell1.xib in Resources */,
 				C51C34081DBB2231004C45B2 /* CustomCell.xib in Resources */,
+				C51C342F1DBBE16B004C45B2 /* UserCell.xib in Resources */,
 				C51C34101DBB269A004C45B2 /* language.png in Resources */,
 				C51C33D51DBA2640004C45B2 /* LaunchScreen.storyboard in Resources */,
 				C51C340E1DBB2458004C45B2 /* watch.png in Resources */,
@@ -291,8 +323,12 @@
 			files = (
 				C51C33CD1DBA263F004C45B2 /* SecondViewController.m in Sources */,
 				C51C33C71DBA263F004C45B2 /* AppDelegate.m in Sources */,
+				C51C342A1DBBDF53004C45B2 /* ThirdViewController.m in Sources */,
 				C51C341A1DBB61CB004C45B2 /* KeychainItemWrapper.m in Sources */,
+				C51C342E1DBBE16B004C45B2 /* UserCell.m in Sources */,
 				C51C33CA1DBA263F004C45B2 /* FirstViewController.m in Sources */,
+				C51C34321DBBE45D004C45B2 /* FourthViewController.m in Sources */,
+				C51C34241DBBCD3F004C45B2 /* CustomCell1.m in Sources */,
 				C51C33C41DBA263F004C45B2 /* main.m in Sources */,
 				C51C34131DBB279A004C45B2 /* CustomCell.m in Sources */,
 			);
