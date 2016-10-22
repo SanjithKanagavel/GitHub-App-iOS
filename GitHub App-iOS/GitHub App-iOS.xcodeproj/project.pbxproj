@@ -26,6 +26,9 @@
 		C51C34151DBB51C5004C45B2 /* lang-color.json in Resources */ = {isa = PBXBuildFile; fileRef = C51C34141DBB51C5004C45B2 /* lang-color.json */; };
 		C51C34171DBB6162004C45B2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51C34161DBB6160004C45B2 /* Security.framework */; };
 		C51C341A1DBB61CB004C45B2 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34191DBB61CB004C45B2 /* KeychainItemWrapper.m */; };
+		C51C341C1DBBAAB0004C45B2 /* star-small.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C341B1DBBAAB0004C45B2 /* star-small.png */; };
+		C51C341F1DBBAC23004C45B2 /* follower.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C341D1DBBAC23004C45B2 /* follower.png */; };
+		C51C34201DBBAC23004C45B2 /* following.png in Resources */ = {isa = PBXBuildFile; fileRef = C51C341E1DBBAC23004C45B2 /* following.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		C51C34161DBB6160004C45B2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		C51C34181DBB61CB004C45B2 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		C51C34191DBB61CB004C45B2 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		C51C341B1DBBAAB0004C45B2 /* star-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-small.png"; sourceTree = "<group>"; };
+		C51C341D1DBBAC23004C45B2 /* follower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = follower.png; sourceTree = "<group>"; };
+		C51C341E1DBBAC23004C45B2 /* following.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = following.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 		C51C33C11DBA263F004C45B2 /* GitHub App-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C51C341D1DBBAC23004C45B2 /* follower.png */,
+				C51C341E1DBBAC23004C45B2 /* following.png */,
+				C51C341B1DBBAAB0004C45B2 /* star-small.png */,
 				C51C34181DBB61CB004C45B2 /* KeychainItemWrapper.h */,
 				C51C34191DBB61CB004C45B2 /* KeychainItemWrapper.m */,
 				C51C34091DBB2458004C45B2 /* star.png */,
@@ -212,9 +221,12 @@
 				C51C34101DBB269A004C45B2 /* language.png in Resources */,
 				C51C33D51DBA2640004C45B2 /* LaunchScreen.storyboard in Resources */,
 				C51C340E1DBB2458004C45B2 /* watch.png in Resources */,
+				C51C341F1DBBAC23004C45B2 /* follower.png in Resources */,
 				C51C33DF1DBA2793004C45B2 /* user.png in Resources */,
+				C51C341C1DBBAAB0004C45B2 /* star-small.png in Resources */,
 				C51C34151DBB51C5004C45B2 /* lang-color.json in Resources */,
 				C51C33DE1DBA2793004C45B2 /* repo.png in Resources */,
+				C51C34201DBBAC23004C45B2 /* following.png in Resources */,
 				C51C340C1DBB2458004C45B2 /* star.png in Resources */,
 				C51C340D1DBB2458004C45B2 /* fork.png in Resources */,
 				C51C33D21DBA2640004C45B2 /* Assets.xcassets in Resources */,

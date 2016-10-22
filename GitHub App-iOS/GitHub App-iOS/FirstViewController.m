@@ -16,6 +16,8 @@
 
 @interface FirstViewController ()
 @property NSMutableArray *repoDetails;
+@property NSString *userName;
+@property NSString *userPassword;
 @end
 
 @implementation FirstViewController
@@ -23,8 +25,8 @@ UAGithubEngine *engine;
 NSUserDefaults *userDefaults;
 UILabel *labelView;
 NSDictionary *colorDict;
-NSString *userName;
-NSString *userPassword;
+BOOL loggedIn;
+UIButton *button;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,47 +35,53 @@ NSString *userPassword;
     NSError *error;
     colorDict = [NSJSONSerialization JSONObjectWithData:colorData options:0 error:&error];
     self.repoDetails =[[NSMutableArray alloc] init];
-    
     labelView = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 50)];
     [labelView setCenter:CGPointMake([[UIScreen mainScreen]bounds].size.width/2, [[UIScreen mainScreen]bounds].size.height/2)];
     [labelView setTextColor:[UIColor whiteColor]];
     [labelView setTextAlignment:NSTextAlignmentCenter];
     labelView.text = @"No Repositories found";
-    [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"]; //registering custom cell
+    button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 200, 50);
+    [button setTitle:@"Login" forState:UIControlStateNormal];
+    [button setTitle:@"Login" forState:UIControlStateSelected];
+    [button setCenter:CGPointMake([[UIScreen mainScreen]bounds].size.width/2, [[UIScreen mainScreen]bounds].size.height/2)];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+    [button setBackgroundColor:[self colorFromHexString:@"#00BFA5"]];
+    button.layer.cornerRadius = 5;
+    [button addTarget:self action:@selector(signInPullRepo) forControlEvents:UIControlEventTouchUpInside];
+    button.titleLabel.font= [UIFont fontWithName:@"Helvetica-Bold" size:20.0];
+    [button setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
+    [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
+    [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    if(false) {
-        userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"GitHubCredentials"];
-        NSString *userName = [userDefaults stringForKey:@"UserName"];
-        NSString *userPassword = [userDefaults stringForKey:@"UserPassword"];
-        NSLog(@"%@ %@",userName,userPassword);
-        if([userDefaults stringForKey:@"UserName"] == nil) {
-            printf("Account not found");
-            [self signIn];
-        }
-        else {
-            printf("Account found");
-            [self pullRepos];
-        }
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    if([defaults stringForKey:@"userName"] == nil) {
+        loggedIn = false;
+        [self.view addSubview:button];
     }
-    else{
+    else {
+        loggedIn = true;
+        self.userName = [ defaults objectForKey:@"userName"];
+        self.userPassword = [ defaults objectForKey:@"userPassword"];
         [self pullRepos];
     }
-
-}
-
--(void) isLoggedIn {
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-}
-
--(void) signIn {
     
-    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"SignIn to Github"
-                                                                              message: @"Username and Password"
+ }
+
+
+/*
+ * SignIn to Git and pull repos
+ */
+
+-(void) signInPullRepo {
+    
+    UIAlertController * alertController = [UIAlertController alertControllerWithTitle: @"SignIn to Github" message: @"Username and Password"
                                                                        preferredStyle:UIAlertControllerStyleAlert];
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
@@ -95,26 +103,52 @@ NSString *userPassword;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
             engine = [[UAGithubEngine alloc] initWithUsername:userName.text password:userPassword.text withReachability:YES];
             if(engine != nil) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //[userDefaults setObject:@"UserName" forKey:userName.text];
-                    //[userDefaults setObject:@"UserPassword" forKey:userPassword.text];
-                    //[userDefaults synchronize];
-                    [self saveToKeyChain:userName.text password:userPassword.text];
-                    [self pullRepos];
-                });
+                [engine repositoriesWithSuccess:^(id response) {
+                    NSError *e = nil;
+                    NSError *error = nil;
+                    NSData *jsonData2 = [NSJSONSerialization dataWithJSONObject:response options:NSJSONWritingPrettyPrinted error:&error];
+                    NSString *jsonString = [[NSString alloc] initWithData:jsonData2 encoding:NSUTF8StringEncoding];
+                    NSLog(@"jsonData as string:\n%@", jsonString);
+                    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData: jsonData2 options: NSJSONReadingMutableContainers error: &e];
+                    if (!jsonArray) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self signInPullRepo];
+                        });
+                        NSLog(@"Data Error");
+                        return;
+                        
+                    } else {
+                        self.userName = userName.text;
+                        self.userPassword = userPassword.text;
+                        dispatch_async(dispatch_get_main_queue(), ^{ //Do updates in the main thread
+                            loggedIn = true;
+                            [button removeFromSuperview];
+                            [labelView setText:@"Loading data. Please Wait."];
+                            [self.view addSubview:labelView];
+                            [self saveUserDetail];
+                            for(NSDictionary *item in jsonArray) {
+                                [self.repoDetails addObject:item];
+                                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                                [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                            }
+                        });
+                    }
+                } failure:^(NSError *error) {
+                    NSLog(@"Oops: %@", error);
+                }];
+
             }
             
         });
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
-
 }
 
--(void) saveToKeyChain :(NSString*)name password:(NSString*)password {
-    NSData *pwdData = [password dataUsingEncoding:NSUTF8StringEncoding]; //Hashinh the password with salt
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"GitHubApp-Login" accessGroup:nil];
-    [keychainItem setObject:name forKey:(__bridge id)(kSecAttrAccount)];
-    [keychainItem setObject:pwdData forKey:(__bridge id)(kSecValueData)];
+-(void) saveUserDetail  {
+     NSUserDefaults* defaults1 = [NSUserDefaults standardUserDefaults];
+     [defaults1 setObject:self.userName forKey:@"userName"];
+     [defaults1 setObject:self.userPassword forKey:@"userPassword"];
+     [defaults1 synchronize];
 }
 
 
@@ -122,26 +156,15 @@ NSString *userPassword;
 -(void) pullRepos {
     [self.repoDetails removeAllObjects];
     
-    
-    if(false) {
-        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"GitHubApp-Login" accessGroup:nil];
-        NSData *pwdData = [keychainItem objectForKey:(__bridge id)(kSecValueData)];
-        NSString *password = [[NSString alloc] initWithData:pwdData encoding:NSUTF8StringEncoding];
-        userName = [keychainItem objectForKey:(__bridge id)(kSecAttrAccount)];
-        userPassword = password;
-        //userName = [userDefaults stringForKey:@"UserName"];
-        //userPassword = [userDefaults stringForKey:@"UserPassword"];
-    }
-    else {
-        //replace your git username and password here
-        userName = @"";
-        userPassword = @"";
+    if(false) {  //replace your git username and password here used for testing
+        self.userName = @"";
+        self.userPassword = @"";
     }
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
     
     if ( engine == nil )
     {
-        engine = [[UAGithubEngine alloc] initWithUsername:userName password:userPassword withReachability:YES];
+        engine = [[UAGithubEngine alloc] initWithUsername:self.userName password:self.userPassword withReachability:YES];
     }
     
     [engine repositoriesWithSuccess:^(id response) {
@@ -193,7 +216,9 @@ NSString *userPassword;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(loggedIn)
     if(self.repoDetails.count < 1) {
+        [labelView setText:@"Loading data..."];
         [self.view addSubview:labelView];
     }
     else {
@@ -248,5 +273,7 @@ NSString *userPassword;
      [scanner scanHexInt:&rgbValue];
      return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
  }
+
+//starredGistsWithSuccess
 
 @end
