@@ -286,23 +286,146 @@
         <!--Profile-->
         <scene sceneID="UJl-ZD-k9u">
             <objects>
-                <viewController id="76O-O8-zVk" userLabel="Profile" sceneMemberID="viewController">
+                <viewController id="76O-O8-zVk" userLabel="Profile" customClass="FifthViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="udA-dP-HP9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="User Profile" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="esI-FF-9IR">
-                                <rect key="frame" x="66" y="263" width="189" height="42"/>
+                            <navigationBar contentMode="center" id="rSi-ZM-Htk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="barTintColor" red="0.2470588235" green="0.47058823529999999" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textShadowColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Following" id="oGL-4z-wG2"/>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Str-3C-MMo">
+                                <rect key="frame" x="20" y="61" width="103" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sanjith Kanagavel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DQj-Og-5XA">
+                                <rect key="frame" x="136" y="61" width="157" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chennai" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LSZ-Uh-ETd">
+                                <rect key="frame" x="73" y="246" width="156" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.png" id="JXk-kX-64v">
+                                <rect key="frame" x="37" y="246" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SanjithKanagavel@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mwO-Pa-iWn">
+                                <rect key="frame" x="68" y="294" width="232" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email.png" id="BTy-gh-Geg">
+                                <rect key="frame" x="37" y="293" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://sanjithkanagavel.github.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="s0I-pb-yC0">
+                                <rect key="frame" x="68" y="341" width="232" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link.png" id="xR4-tI-T59">
+                                <rect key="frame" x="37" y="340" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SanjithKanagavel@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dPp-if-7zt">
+                                <rect key="frame" x="68" y="393" width="232" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="joined.png" id="pTm-Il-Gpx">
+                                <rect key="frame" x="37" y="392" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/SanjithKanagavel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QWF-Tl-TQP">
+                                <rect key="frame" x="68" y="441" width="232" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github.png" id="IP1-lA-ZvB">
+                                <rect key="frame" x="37" y="440" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kjn-Kp-MV9">
+                                <rect key="frame" x="65" y="189" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="repo-white.png" id="8Bi-Tt-ZQd">
+                                <rect key="frame" x="37" y="188" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jwi-JC-2jU">
+                                <rect key="frame" x="241" y="191" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="following-white.png" id="SvR-Lt-Hnb">
+                                <rect key="frame" x="210" y="188" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DrO-FU-cX4">
+                                <rect key="frame" x="155" y="191" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="follower-white.png" id="qiE-FB-1e7">
+                                <rect key="frame" x="124" y="188" width="23" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.039215686274509803" green="0.027450980392156862" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="user.png" id="GkY-A7-ogF" userLabel="Profile"/>
+                    <connections>
+                        <outlet property="emailId" destination="mwO-Pa-iWn" id="ake-7m-LjS"/>
+                        <outlet property="emailImage" destination="BTy-gh-Geg" id="y3l-GM-MXg"/>
+                        <outlet property="followerImage" destination="qiE-FB-1e7" id="Cck-Zk-nTu"/>
+                        <outlet property="followersLink" destination="DrO-FU-cX4" id="Upw-FL-EhN"/>
+                        <outlet property="followingCount" destination="Jwi-JC-2jU" id="PSt-vj-NUU"/>
+                        <outlet property="followingImage" destination="SvR-Lt-Hnb" id="WI5-FQ-byh"/>
+                        <outlet property="githubImage" destination="IP1-lA-ZvB" id="yN9-D9-Rwt"/>
+                        <outlet property="joinedImage" destination="pTm-Il-Gpx" id="sKf-jI-mVE"/>
+                        <outlet property="linkImage" destination="xR4-tI-T59" id="7CA-6Y-Cpm"/>
+                        <outlet property="locationImage" destination="JXk-kX-64v" id="nLh-gN-G2U"/>
+                        <outlet property="repoCount" destination="kjn-Kp-MV9" id="Qf3-uj-RA5"/>
+                        <outlet property="repoImage" destination="8Bi-Tt-ZQd" id="IsH-Og-JYe"/>
+                        <outlet property="userGit" destination="QWF-Tl-TQP" id="jBy-vv-Lna"/>
+                        <outlet property="userLocation" destination="LSZ-Uh-ETd" id="0hr-1Z-XXP"/>
+                        <outlet property="userMail" destination="dPp-if-7zt" id="UTG-JB-eBg"/>
+                        <outlet property="userNme" destination="DQj-Og-5XA" id="woY-WD-tzr"/>
+                        <outlet property="userimage" destination="Str-3C-MMo" id="RuN-L9-xqi"/>
+                        <outlet property="websiteLink" destination="s0I-pb-yC0" id="5hI-vz-9hg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KBI-MD-KCH" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,8 +433,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="email.png" width="100" height="100"/>
+        <image name="follower-white.png" width="100" height="100"/>
         <image name="follower.png" width="22" height="22"/>
+        <image name="following-white.png" width="100" height="100"/>
         <image name="following.png" width="22" height="22"/>
+        <image name="github.png" width="100" height="100"/>
+        <image name="joined.png" width="100" height="100"/>
+        <image name="link.png" width="100" height="100"/>
+        <image name="location.png" width="100" height="100"/>
+        <image name="repo-white.png" width="100" height="100"/>
         <image name="repo.png" width="22" height="22"/>
         <image name="star-small.png" width="22" height="22"/>
         <image name="user.png" width="22" height="22"/>

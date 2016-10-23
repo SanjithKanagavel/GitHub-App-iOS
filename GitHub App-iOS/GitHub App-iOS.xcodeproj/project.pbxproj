@@ -36,6 +36,15 @@
 		C51C342E1DBBE16B004C45B2 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C342C1DBBE16B004C45B2 /* UserCell.m */; };
 		C51C342F1DBBE16B004C45B2 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C51C342D1DBBE16B004C45B2 /* UserCell.xib */; };
 		C51C34321DBBE45D004C45B2 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C51C34311DBBE45D004C45B2 /* FourthViewController.m */; };
+		C5CCD89A1DBC6C1B00C38629 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CCD8991DBC6C1B00C38629 /* FifthViewController.m */; };
+		C5CCD89C1DBC713300C38629 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD89B1DBC713300C38629 /* location.png */; };
+		C5CCD89E1DBC71D600C38629 /* email.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD89D1DBC71D600C38629 /* email.png */; };
+		C5CCD8A11DBC72F500C38629 /* joined.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD89F1DBC72F500C38629 /* joined.png */; };
+		C5CCD8A21DBC72F500C38629 /* link.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD8A01DBC72F500C38629 /* link.png */; };
+		C5CCD8A51DBC746400C38629 /* following-white.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD8A31DBC746400C38629 /* following-white.png */; };
+		C5CCD8A61DBC746400C38629 /* follower-white.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD8A41DBC746400C38629 /* follower-white.png */; };
+		C5CCD8A91DBC74D500C38629 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD8A71DBC74D500C38629 /* github.png */; };
+		C5CCD8AA1DBC74D500C38629 /* repo-white.png in Resources */ = {isa = PBXBuildFile; fileRef = C5CCD8A81DBC74D500C38629 /* repo-white.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +91,16 @@
 		C51C342D1DBBE16B004C45B2 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		C51C34301DBBE45D004C45B2 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		C51C34311DBBE45D004C45B2 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		C5CCD8981DBC6C1B00C38629 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
+		C5CCD8991DBC6C1B00C38629 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
+		C5CCD89B1DBC713300C38629 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		C5CCD89D1DBC71D600C38629 /* email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = email.png; sourceTree = "<group>"; };
+		C5CCD89F1DBC72F500C38629 /* joined.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = joined.png; sourceTree = "<group>"; };
+		C5CCD8A01DBC72F500C38629 /* link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = link.png; sourceTree = "<group>"; };
+		C5CCD8A31DBC746400C38629 /* following-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "following-white.png"; sourceTree = "<group>"; };
+		C5CCD8A41DBC746400C38629 /* follower-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "follower-white.png"; sourceTree = "<group>"; };
+		C5CCD8A71DBC74D500C38629 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
+		C5CCD8A81DBC74D500C38629 /* repo-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "repo-white.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +146,14 @@
 		C51C33C11DBA263F004C45B2 /* GitHub App-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				C5CCD8A71DBC74D500C38629 /* github.png */,
+				C5CCD8A81DBC74D500C38629 /* repo-white.png */,
+				C5CCD8A31DBC746400C38629 /* following-white.png */,
+				C5CCD8A41DBC746400C38629 /* follower-white.png */,
+				C5CCD89F1DBC72F500C38629 /* joined.png */,
+				C5CCD8A01DBC72F500C38629 /* link.png */,
+				C5CCD89D1DBC71D600C38629 /* email.png */,
+				C5CCD89B1DBC713300C38629 /* location.png */,
 				C51C34261DBBDCBB004C45B2 /* author.png */,
 				C51C341D1DBBAC23004C45B2 /* follower.png */,
 				C51C341E1DBBAC23004C45B2 /* following.png */,
@@ -156,6 +183,8 @@
 				C51C34291DBBDF53004C45B2 /* ThirdViewController.m */,
 				C51C34301DBBE45D004C45B2 /* FourthViewController.h */,
 				C51C34311DBBE45D004C45B2 /* FourthViewController.m */,
+				C5CCD8981DBC6C1B00C38629 /* FifthViewController.h */,
+				C5CCD8991DBC6C1B00C38629 /* FifthViewController.m */,
 				C51C342B1DBBE16B004C45B2 /* UserCell.h */,
 				C51C342C1DBBE16B004C45B2 /* UserCell.m */,
 				C51C342D1DBBE16B004C45B2 /* UserCell.xib */,
@@ -246,22 +275,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5CCD8A91DBC74D500C38629 /* github.png in Resources */,
 				C51C34271DBBDCBB004C45B2 /* author.png in Resources */,
+				C5CCD8A51DBC746400C38629 /* following-white.png in Resources */,
 				C51C34251DBBCD3F004C45B2 /* CustomCell1.xib in Resources */,
 				C51C34081DBB2231004C45B2 /* CustomCell.xib in Resources */,
 				C51C342F1DBBE16B004C45B2 /* UserCell.xib in Resources */,
+				C5CCD89E1DBC71D600C38629 /* email.png in Resources */,
+				C5CCD89C1DBC713300C38629 /* location.png in Resources */,
 				C51C34101DBB269A004C45B2 /* language.png in Resources */,
+				C5CCD8A61DBC746400C38629 /* follower-white.png in Resources */,
 				C51C33D51DBA2640004C45B2 /* LaunchScreen.storyboard in Resources */,
 				C51C340E1DBB2458004C45B2 /* watch.png in Resources */,
 				C51C341F1DBBAC23004C45B2 /* follower.png in Resources */,
 				C51C33DF1DBA2793004C45B2 /* user.png in Resources */,
+				C5CCD8A21DBC72F500C38629 /* link.png in Resources */,
 				C51C341C1DBBAAB0004C45B2 /* star-small.png in Resources */,
+				C5CCD8AA1DBC74D500C38629 /* repo-white.png in Resources */,
 				C51C34151DBB51C5004C45B2 /* lang-color.json in Resources */,
 				C51C33DE1DBA2793004C45B2 /* repo.png in Resources */,
 				C51C34201DBBAC23004C45B2 /* following.png in Resources */,
 				C51C340C1DBB2458004C45B2 /* star.png in Resources */,
 				C51C340D1DBB2458004C45B2 /* fork.png in Resources */,
 				C51C33D21DBA2640004C45B2 /* Assets.xcassets in Resources */,
+				C5CCD8A11DBC72F500C38629 /* joined.png in Resources */,
 				C51C33D01DBA263F004C45B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +361,7 @@
 				C51C33CD1DBA263F004C45B2 /* SecondViewController.m in Sources */,
 				C51C33C71DBA263F004C45B2 /* AppDelegate.m in Sources */,
 				C51C342A1DBBDF53004C45B2 /* ThirdViewController.m in Sources */,
+				C5CCD89A1DBC6C1B00C38629 /* FifthViewController.m in Sources */,
 				C51C341A1DBB61CB004C45B2 /* KeychainItemWrapper.m in Sources */,
 				C51C342E1DBBE16B004C45B2 /* UserCell.m in Sources */,
 				C51C33CA1DBA263F004C45B2 /* FirstViewController.m in Sources */,
