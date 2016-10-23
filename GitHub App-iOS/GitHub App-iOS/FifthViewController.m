@@ -204,7 +204,8 @@ NSUserDefaults *userDefaults;
         {
             self.engine = [[UAGithubEngine alloc] initWithUsername:self.userName password:self.userPassword withReachability:YES];
         }
-        
+        [self.labelView setText:@"Loading data. Please Wait."];
+        [self.view addSubview:self.labelView];
         [self.engine userWithSuccess:^(id response) {
             
             NSError *e = nil;
@@ -217,11 +218,21 @@ NSUserDefaults *userDefaults;
                 NSLog(@"Error parsing JSON: %@", e);
             } else {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-                        [dict setObject:jsonArray forKey:@"data"];
-                        NSLog(@"%@",dict);
                         [self showLayout];
-                        //_followingCount.text = [[[dict objectForKey:@"data"] objectForKey:@"following"] description];
+                        _userNme.text = [[[jsonArray objectAtIndex:0] objectForKey:@"name"] description];
+                        _repoCount.text = [[[jsonArray objectAtIndex:0] objectForKey:@"public_repos"] description];
+                        _followingCount.text = [[[jsonArray objectAtIndex:0] objectForKey:@"following"] description];
+                        _followersLink.text = [[[jsonArray objectAtIndex:0] objectForKey:@"followers"] description];
+                        _userLocation.text = [[[jsonArray objectAtIndex:0] objectForKey:@"location"] description];
+                        _emailId.text = [[[jsonArray objectAtIndex:0] objectForKey:@"email"] description];
+                        _websiteLink.text = [[[jsonArray objectAtIndex:0] objectForKey:@"blog"] description];
+                        _userMail.text = [[[jsonArray objectAtIndex:0] objectForKey:@"created_at"] description];
+                        _userGit.text = [[[jsonArray objectAtIndex:0] objectForKey:@"html_url"] description];
+                        NSURL *url = [NSURL URLWithString:[[[jsonArray objectAtIndex:0] objectForKey:@"avatar_url"] description]];
+                        NSData *data = [NSData dataWithContentsOfURL:url];
+                        UIImage *image = [UIImage imageWithData:data];
+                        [_userimage setImage:image];
+                        [self.labelView removeFromSuperview];
                 });
             }
             

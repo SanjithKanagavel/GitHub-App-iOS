@@ -300,7 +300,7 @@
                                     <color key="textShadowColor" name="controlShadowColor" catalog="System" colorSpace="catalog"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Following" id="oGL-4z-wG2"/>
+                                    <navigationItem title="User Profile" id="oGL-4z-wG2"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Str-3C-MMo">
